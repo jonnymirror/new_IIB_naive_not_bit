@@ -1,4 +1,3 @@
-//頂点数が64以上の場合, オーバーフローする
 #include <iostream>
 #include <vector>
 #include <intrin.h>
@@ -91,7 +90,7 @@ void making_subgraph(long long int a, long long int k, long long int l) {//a番目
 
 int main() {
 	//入力開始
-	ifstream ifs1("moreno_zebra.txt");
+	ifstream ifs1("kangaroos.txt");
 
 	if (!ifs1) {
 		std::cout << "Error!";
@@ -113,12 +112,12 @@ int main() {
 			m = stoll(s);
 			count++;
 		}
-		else if (count > 1 && count < 2 + 2 * m && count % 2 == 0) {//グラフの枝の端点
+		else if (count > 1 && count % 2 == 0) {//グラフの枝の端点
 			x = stoll(s);
 			x--;
 			count++;
 		}
-		else if (count > 1 && count < 2 + 2 * m && count % 2 == 1) {//グラフの枝のもう一つの端点
+		else if (count > 1 && count % 2 == 1) {//グラフの枝のもう一つの端点
 			y = stoll(s);
 			y--;
 			count++;
@@ -129,7 +128,7 @@ int main() {
 
 	ifs1.close();
 
-	ifstream ifs2("moreno_zebra_threshold.txt");
+	ifstream ifs2("kangaroos_threshold.txt");
 
 	if (!ifs2) {
 		std::cout << "Error!";
